@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Пользователи</title>
+
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Должность</th>
+        <th>Логин</th>
+        <th>Пароль</th>
+        <th>Роль</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.occupation}"></td>
+        <td th:text="${user.login}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.role == null ? 'Не существует' : user.role.name}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новое SMS</title>
+</head>
+<body>
+<form method="post" th:action="@{/sms_messages/new}" th:object="${new_sms}">
+
+    <label for="newSms1">Телефон получателя</label>
+    <input id="newSms1" type="text" required th:field="*{recipientPhoneNumber}">
+    <label for="newSms2">Текст сообщения</label>
+    <input id="newSms2" type="text" required th:field="*{smsText}">
+
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

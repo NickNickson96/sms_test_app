@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Клиенты</title>
+
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Номер контракта</th>
+        <th>Имя клиента</th>
+        <th>Логин</th>
+        <th>Пароль</th>
+        <th>Адрес</th>
+        <th>Баланс</th>
+        <th>Платежный счет</th>
+        <th>Имя отправителя сообщений</th>
+        <th>Дата регистрации</th>
+        <th>Тариф</th>
+        <th>Зарегистрировавший пользователь</th>
+    </tr>
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.id}"></td>
+        <td th:text="${client.contractNumber}"></td>
+        <td th:text="${client.name}"></td>
+        <td th:text="${client.login}"></td>
+        <td th:text="${client.password}"></td>
+        <td th:text="${client.address}"></td>
+        <td th:text="${client.balance}"></td>
+        <td th:text="${client.paymentAccount}"></td>
+        <td th:text="${client.messageSenderName}"></td>
+        <td th:text="${client.registrationDate}"></td>
+        <td th:text="${client.tariff == null ? 'Не существует' :client.tariff.name}"></td>
+        <td th:text="${client.user == null ? 'Не существует' : client.user.name}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

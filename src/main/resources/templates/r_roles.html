@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Роли</title>
+
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Назввание роли</th>
+    </tr>
+    <tr th:each="role : ${roles}">
+
+        <td th:text="${role.id}"></td>
+        <td th:text="${role.name}"></td>
+        <td th:text="${role.rights == null ? 'Не существует' : 'Существует'}"></td>
+
+    </tr>
+</table>
+
+</body>
+</html>

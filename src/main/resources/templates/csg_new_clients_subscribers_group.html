@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая группа</title>
+</head>
+<body>
+<form method="post" th:action="@{/clients_subscribers_groups/new}" th:object="${new_client_s_subscribers_group}">
+
+    <label for="newRole1">Название группы</label>
+    <input id="newRole1" type="text" required th:field="*{name}">
+    <select class="form-control" th:field="*{subIds}" multiple>
+        <option th:each="sub : ${subs}"
+                th:value="${sub.id}"
+                th:text="${sub.name}">
+        </option>
+    </select>
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

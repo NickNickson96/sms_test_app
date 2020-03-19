@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая роль</title>
+</head>
+<body>
+<form method="post" th:action="@{/roles/new}" th:object="${new_role}">
+
+    <label for="newRole1">Название роли</label>
+    <input id="newRole1" type="text" required th:field="*{name}">
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

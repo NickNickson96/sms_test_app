@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>SMS</title>
+
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>ID клиента</th>
+        <th>Телефон получателя</th>
+        <th>Статус отправки</th>
+        <th>Статус получения</th>
+        <th>Дата отправки</th>
+        <th>Дата получения</th>
+        <th>Текст SMS</th>
+        <th>Стоимость</th>
+    </tr>
+    <tr th:each="sms_local: ${sms}">
+        <td th:text="${sms_local.id}"></td>
+        <td th:text="${sms_local.clientId}"></td>
+        <td th:text="${sms_local.recipientPhoneNumber}"></td>
+        <td th:text="${sms_local.sendingStatus}"></td>
+        <td th:text="${sms_local.deliveryStatus}"></td>
+        <td th:text="${sms_local.sendingDate}"></td>
+        <td th:text="${sms_local.deliveryDate}"></td>
+        <td th:text="${sms_local.smsText}"></td>
+        <td th:text="${sms_local.cost}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

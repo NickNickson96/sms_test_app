@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новое контактное лицо</title>
+</head>
+<body>
+<form method="post" th:action="@{/contact_persons/new}" th:object="${new_contact_person}">
+
+    <label for="newPerson1">Имя</label>
+    <input id="newPerson1" type="text" required th:field="*{name}">
+    <label for="newPerson2">Номер телефона</label>
+    <input id="newPerson2" type="text" required th:field="*{phoneNumber}">
+    <label for="newPerson3">Email</label>
+    <input id="newPerson3" type="text" required th:field="*{email}">
+
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>
