@@ -38,11 +38,18 @@ public class SmsTemplateController {
     @GetMapping("/new_sms_template")
     public ModelAndView getNewSmsTemplatePage() {
         ModelAndView mav = new ModelAndView("st_new_sms_template");
-        mav.addObject("new_sms_template", new SmsTemplateEntity());
+        mav.addObject("sms_template", new SmsTemplateEntity());
         return mav;
     }
 
-    @PostMapping("/new")
+    @GetMapping("/{id}/edit")
+    public ModelAndView getEditTariffPage(@PathVariable("id") Long id) {
+        ModelAndView mav = new ModelAndView("st_new_sms_template");
+        mav.addObject("sms_template", smsTemplateService.getThisSmsTemplateEntityById(id));
+        return mav;
+    }
+
+    @PostMapping("/save")
     public String newSmsTemplate(SmsTemplateEntity entity) {
         smsTemplateService.saveThisSmsTemplateEntity(entity);
         return "redirect:/sms_templates";

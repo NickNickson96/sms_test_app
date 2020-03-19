@@ -27,15 +27,24 @@ public class ClientsSubscribersGroupController {
         return mav;
     }
 
-    @GetMapping("/new_client_s_subscribers_group")
+    @GetMapping("/new_clients_subscribers_group")
     public ModelAndView getNewClientsSubscribersGroupPage() {
         ModelAndView mav = new ModelAndView("csg_new_clients_subscribers_group");
         mav.addObject("subs", subscriberService.getAllSubscriberEntities());
-        mav.addObject("new_client_s_subscribers_group", new ClientsSubscribersGroupDto());
+        mav.addObject("clients_subscribers_group", new ClientsSubscribersGroupDto());
         return mav;
     }
 
-    @PostMapping("/new")
+    @GetMapping("/{id}/edit")
+    public ModelAndView getEditClientsSubscribersGroupPage(@PathVariable("id") Long id) {
+        ModelAndView mav = new ModelAndView("csg_new_clients_subscribers_group");
+        //mav.addObject("subs", subscriberService.getAllSubscribersByIds() );
+        //clientsSubscribersGroupService.getThisClientsSubscribersGroupEntityById(id).getSubscribers() );
+        mav.addObject("clients_subscribers_group", clientsSubscribersGroupService.getThisClientsSubscribersGroupEntityById(id));
+        return mav;
+    }
+
+    @PostMapping("/save")
     public String newClientsSubscribersGroup(ClientsSubscribersGroupDto csg) {
         clientsSubscribersGroupService.saveThisClientsSubscribersGroupEntity(csg);
         return "redirect:/clients_subscribers_groups";

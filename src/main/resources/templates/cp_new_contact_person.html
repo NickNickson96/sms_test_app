@@ -2,11 +2,16 @@
 <html lang="ru"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
-    <title>Новое контактное лицо</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title th:text="${contact_person.id == null ? 'Добавление контактного лица' : 'Редактирование онтактного лица'}"></title>
 </head>
 <body>
-<form method="post" th:action="@{/contact_persons/new}" th:object="${new_contact_person}">
+<form method="post" th:action="@{/contact_persons/save}" th:object="${contact_person}">
+
+    <label><input hidden th:field="*{id}"></label>
 
     <label for="newPerson1">Имя</label>
     <input id="newPerson1" type="text" required th:field="*{name}">
@@ -15,7 +20,7 @@
     <label for="newPerson3">Email</label>
     <input id="newPerson3" type="text" required th:field="*{email}">
 
-    <button type="submit">Добавить</button>
+    <button type="submit">Сохранить</button>
 </form>
 </body>
 </html>

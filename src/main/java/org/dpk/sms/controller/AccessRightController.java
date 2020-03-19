@@ -26,11 +26,18 @@ public class AccessRightController {
     @GetMapping("/new_access_right")
     public ModelAndView getNewAccessRightPage() {
         ModelAndView mav = new ModelAndView("ar_new_access_right");
-        mav.addObject("new_access_right", new AccessRightEntity());
+        mav.addObject("access_right", new AccessRightEntity());
         return mav;
     }
 
-    @PostMapping("/new")
+    @GetMapping("/{id}/edit")
+    public ModelAndView getEditAccessRightPage(@PathVariable("id") Long id) {
+        ModelAndView mav = new ModelAndView("ar_new_access_right");
+        mav.addObject("access_right", accessRightService.getThisAccessRightEntityById(id));
+        return mav;
+    }
+
+    @PostMapping("/save")
     public String newAccessRight(AccessRightEntity entity) {
         accessRightService.saveThisAccessRightEntity(entity);
         return "redirect:/access_rights";

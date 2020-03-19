@@ -39,11 +39,18 @@ public class ContactPersonController {
     @GetMapping("/new_contact_person")
     public ModelAndView getNewContactPersonPage() {
         ModelAndView mav = new ModelAndView("cp_new_contact_person");
-        mav.addObject("new_contact_person", new ContactPersonEntity());
+        mav.addObject("contact_person", new ContactPersonEntity());
         return mav;
     }
 
-    @PostMapping("/new")
+    @GetMapping("/{id}/edit")
+    public ModelAndView getEditTariffPage(@PathVariable("id") Long id) {
+        ModelAndView mav = new ModelAndView("cp_new_contact_person");
+        mav.addObject("contact_person", contactPersonService.getThisContactPersonEntityById(id));
+        return mav;
+    }
+
+    @PostMapping("/save")
     public String newContactPerson(ContactPersonEntity entity) {
         contactPersonService.saveThisContactPersonEntity(entity);
         return "redirect:/contact_persons";

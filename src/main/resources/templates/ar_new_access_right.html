@@ -3,10 +3,14 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Новое право доступа</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title th:text="${access_right.id == null ? 'Добавление тарифа' : 'Редактирование тарифа'}"></title>
 </head>
 <body>
-<form method="post" th:action="@{/access_rights/new}" th:object="${new_access_right}">
+<form method="post" th:action="@{/access_rights/save}" th:object="${access_right}">
+
+    <input hidden th:field="*{id}">
 
     <label for="newRight1">Право доступа</label>
     <input id="newRight1" type="text" required th:field="*{theRight}">

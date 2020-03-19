@@ -2,16 +2,14 @@
 <html lang="ru"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <!-- Required meta tags -->
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
 
     <title>Новый пользователь</title>
 </head>
 <body>
-<div class="card col-sm-9">
+<div class="card col-sm-9 center-block">
     <div class="card-body col-sm-8">
 <form method="post" th:action="@{/users/new}" th:object="${new_user}">
   <div class="form-group">

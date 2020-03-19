@@ -2,13 +2,16 @@
 <html lang="ru"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
     <title th:text="${tariff.id == null ? 'Добавление тарифа' : 'Редактирование тарифа'}"></title>
 </head>
 <body>
 <form method="post" th:action="@{/tariffs/save}" th:object="${tariff}">
 
-    <input hidden th:field="*{id}">
+    <label><input hidden th:field="*{id}"></label>
 
     <label for="tariff_name">Тариф</label>
     <input id="tariff_name" type="text" required th:field="*{name}">

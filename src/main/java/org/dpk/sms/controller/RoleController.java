@@ -4,12 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.dpk.sms.entity.RoleEntity;
 import org.dpk.sms.service.AccessRightService;
 import org.dpk.sms.service.RoleService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/roles")
 @RequiredArgsConstructor
 public class RoleController {
@@ -36,7 +37,14 @@ public class RoleController {
         return mav;
     }
 
-    @PostMapping("/new")
+    @GetMapping("/{id}/edit")
+    public ModelAndView getEditRolePage(@PathVariable("id") Long id) {
+        ModelAndView mav = new ModelAndView("r_new_role");
+        mav.addObject("role", roleService.getThisRoleEntityById(id));
+        return mav;
+    }
+
+    @PostMapping("/save")
     public String newRole(RoleEntity role) { /*(RoleDto role)*/
         roleService.saveThisRoleEntity(role);
         return "redirect:/roles";

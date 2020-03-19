@@ -2,21 +2,27 @@
 <html lang="ru"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
-    <title>Новая группа</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title th:text="${clients_subscribers_group.id == null ? 'Добавление группы' : 'Редактирование группы'}"></title>
 </head>
 <body>
-<form method="post" th:action="@{/clients_subscribers_groups/new}" th:object="${new_client_s_subscribers_group}">
+<form method="post" th:action="@{/clients_subscribers_groups/save}" th:object="${clients_subscribers_group}">
+
+    <input hidden th:field="*{id}">
 
     <label for="newRole1">Название группы</label>
     <input id="newRole1" type="text" required th:field="*{name}">
+
     <select class="form-control" th:field="*{subIds}" multiple>
         <option th:each="sub : ${subs}"
                 th:value="${sub.id}"
                 th:text="${sub.name}">
         </option>
     </select>
-    <button type="submit">Добавить</button>
+    <button type="submit">Сохранить</button>
 </form>
 </body>
 </html>

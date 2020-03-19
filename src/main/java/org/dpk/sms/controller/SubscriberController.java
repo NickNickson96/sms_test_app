@@ -37,11 +37,18 @@ public class SubscriberController {
     @GetMapping("/new_subscriber")
     public ModelAndView getNewSubscriberPage() {
         ModelAndView mav = new ModelAndView("s_new_subscriber");
-        mav.addObject("new_subscriber", new SubscriberEntity());
+        mav.addObject("subscriber", new SubscriberEntity());
         return mav;
     }
 
-    @PostMapping("/new")
+    @GetMapping("/{id}/edit")
+    public ModelAndView getEditSubscriberPage(@PathVariable("id") Long id) {
+        ModelAndView mav = new ModelAndView("s_new_subscriber");
+        mav.addObject("subscriber", subscriberService.getThisSubscriberEntityById(id));
+        return mav;
+    }
+
+    @PostMapping("/save")
     public String newSubscriber(SubscriberEntity entity) {
         subscriberService.saveThisSubscriberEntity(entity);
         return "redirect:/subscribers";
