@@ -6,7 +6,9 @@ import org.dpk.sms.entity.SubscriberEntity;
 import org.dpk.sms.repository.ClientsSubscribersGroupRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -31,6 +33,10 @@ public class ClientsSubscribersGroupService {
         return clientsSubscribersGroupRepository.save(dtoToEntity(csg));
     }
 
+    public ClientsSubscribersGroupDto getDto(Long id) {
+        return entityToDto(getThisClientsSubscribersGroupEntityById(id));
+    }
+
     private ClientsSubscribersGroupEntity dtoToEntity(ClientsSubscribersGroupDto dto) {
         ClientsSubscribersGroupEntity entity = new ClientsSubscribersGroupEntity();
         entity.setId(dto.getId());
@@ -41,6 +47,20 @@ public class ClientsSubscribersGroupService {
         entity.setSubscribers(subscribers);
 
         return entity;
+    }
+
+    private ClientsSubscribersGroupDto entityToDto(ClientsSubscribersGroupEntity entity) {
+        ClientsSubscribersGroupDto dto = new ClientsSubscribersGroupDto();
+        dto.setId(entity.getId());
+        dto.setName(entity.getName());
+
+        List<Long> ids = new ArrayList<>();
+        for (SubscriberEntity sub: entity.getSubscribers()) {
+            ids.add(sub.getId());
+        }
+
+        dto.setSubIds(ids);
+        return dto;
     }
     //-------------------------------------------------------
 

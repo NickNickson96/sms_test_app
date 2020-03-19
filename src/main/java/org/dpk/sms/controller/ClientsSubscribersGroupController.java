@@ -38,9 +38,10 @@ public class ClientsSubscribersGroupController {
     @GetMapping("/{id}/edit")
     public ModelAndView getEditClientsSubscribersGroupPage(@PathVariable("id") Long id) {
         ModelAndView mav = new ModelAndView("csg_new_clients_subscribers_group");
-        //mav.addObject("subs", subscriberService.getAllSubscribersByIds() );
-        //clientsSubscribersGroupService.getThisClientsSubscribersGroupEntityById(id).getSubscribers() );
-        mav.addObject("clients_subscribers_group", clientsSubscribersGroupService.getThisClientsSubscribersGroupEntityById(id));
+        mav.addObject("subs", subscriberService.getAllSubscriberEntities());
+
+        clientsSubscribersGroupService.getThisClientsSubscribersGroupEntityById(id).getSubscribers();
+        mav.addObject("clients_subscribers_group", clientsSubscribersGroupService.getDto(id));
         return mav;
     }
 
