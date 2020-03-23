@@ -92,8 +92,8 @@ VALUES
 INSERT INTO "sms" (client_id, recipient_phone_number, sending_status, delivery_status, sending_date, delivery_date, "sms_text")
 VALUES 
  ( 1, '+380712346545', true, true, '01.01.2020', '01.01.2020', 'Hello,World!'),
- ( 2, '+380718763256', true, false, '02.01.2020',  'Hello,World!'),
- ( 3, '+380712314598', true, false, '03.01.2020',  'Hello,World!'),
+ ( 2, '+380718763256', true, false, '02.01.2020', null,  'Hello,World!'),
+ ( 3, '+380712314598', true, false, '03.01.2020', null, 'Hello,World!'),
  ( 4, '+380718967645', true, true, '04.01.2020', '01.01.2020', 'Hello,World!'),
  ( 5, '+380715035923', true, true, '05.01.2020', '01.01.2020', 'Hello,World!');
 
