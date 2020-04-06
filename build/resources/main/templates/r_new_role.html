@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title th:text="${role.id == null ? 'Добавление роли' : 'Редактирование роли'}"></title>
+</head>
+<body>
+<form method="post" th:action="@{/roles/save}" th:object="${role}">
+
+    <input hidden th:field="*{id}">
+
+    <label for="newRole1">Название роли</label>
+    <input id="newRole1" type="text" required th:field="*{name}">
+    <button type="submit">Сохранить</button>
+</form>
+</body>
+</html>

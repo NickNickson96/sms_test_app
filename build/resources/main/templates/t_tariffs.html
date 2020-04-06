@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title>Тариф</title>
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Тариф</th>
+        <th>Стоимость 1 смс</th>
+    </tr>
+    <tr th:each=" tariff: ${tariffs}">
+        <td th:text="${tariff.id}"></td>
+        <td th:text="${tariff.name}"></td>
+        <td th:text="${tariff.oneSmsCost}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

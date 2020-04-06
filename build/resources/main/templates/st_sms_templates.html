@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title>SMS шаблоны</title>
+
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Название шаблона</th>
+        <th>Текст шаблона</th>
+    </tr>
+    <tr th:each="template : ${sms_template}">
+        <td th:text="${template.id}"></td>
+        <td th:text="${template.name}"></td>
+        <td th:text="${template.text}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

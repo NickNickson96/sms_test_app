@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title>Группы абонентов</title>
+
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Назввание группы</th>
+    </tr>
+    <tr th:each="csg : ${clients_subscribers_groups}">
+
+        <td th:text="${csg.id}"></td>
+        <td th:text="${csg.name}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

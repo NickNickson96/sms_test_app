@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title th:text="${subscriber.id == null ? 'Добавление абонента' : 'Редактирование абонента'}"></title>
+</head>
+<body>
+<form method="post" th:action="@{/subscribers/save}" th:object="${subscriber}">
+
+    <label><input hidden th:field="*{id}"></label>
+
+    <label for="newSubscriber1">Имя абонента</label>
+    <input id="newSubscriber1" type="text" required th:field="*{name}">
+    <label for="newSubscriber2">Номер телефона</label>
+    <input id="newSubscriber2" type="text" required th:field="*{phoneNumber}">
+
+    <button type="submit">Добавить</button>
+</form>
+</body>
+</html>

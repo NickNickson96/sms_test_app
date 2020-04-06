@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title th:text="${tariff.id == null ? 'Добавление тарифа' : 'Редактирование тарифа'}"></title>
+</head>
+<body>
+<form method="post" th:action="@{/tariffs/save}" th:object="${tariff}">
+
+    <label><input hidden th:field="*{id}"></label>
+
+    <label for="tariff_name">Тариф</label>
+    <input id="tariff_name" type="text" required th:field="*{name}">
+    <label for="one_sms_cost">Стоимость 1 смс</label>
+    <input id="one_sms_cost" type="text" required th:field="*{oneSmsCost}">
+
+    <button type="submit">Сохранить</button>
+</body>
+</html>

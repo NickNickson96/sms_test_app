@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title>Права доступа</title>
+
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Право доступа</th>
+        <th>Псевдоним</th>
+    </tr>
+    <tr th:each="right : ${rights}">
+        <td th:text="${right.id}"></td>
+        <td th:text="${right.theRight}"></td>
+        <td th:text="${right.alias}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

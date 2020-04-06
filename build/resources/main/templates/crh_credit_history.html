@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title>История пополнений</title>
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>ID клиента</th>
+        <th>Сумма пополнения</th>
+        <th>Дата пополнения</th>
+        <th>Автор пополнения</th>
+        <th>Статус пополнения</th>
+        <th>Номер контракта</th>
+    </tr>
+    <tr th:each="credit : ${crh_history}">
+        <td th:text="${credit.id}"></td>
+        <td th:text="${credit.clientId}"></td>
+        <td th:text="${credit.date}"></td>
+        <td th:text="${credit.amount}"></td>
+        <td th:text="${credit.author}"></td>
+        <td th:text="${credit.status}"></td>
+        <td th:text="${credit.contractNumber}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

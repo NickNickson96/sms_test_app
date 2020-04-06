@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+
+    <title>История изменений</title>
+
+
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>ID клиента</th>
+        <th>Дата изменения</th>
+        <th>Действие</th>
+    </tr>
+    <tr th:each="change : ${ch_history}">
+        <td th:text="${change.id}"></td>
+        <td th:text="${change.clientId}"></td>
+        <td th:text="${change.date}"></td>
+        <td th:text="${change.action}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
