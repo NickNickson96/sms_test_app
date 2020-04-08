@@ -4,41 +4,136 @@
 <head>
 
     <meta charset="UTF-8">
-    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="new-field.css" type="text/css">
 
     <title>Новый клиент</title>
 </head>
 <body>
-<form method="post" th:action="@{/clients/new}" th:object="${new_client}">
-
-    <label for="newClient1">Номер контракта</label>
-    <input id="newClient1" type="text" required th:field="*{contractNumber}">
-    <label for="newClient2">Имя клиента</label>
-    <input id="newClient2" type="text" required th:field="*{name}">
-    <label for="newClient3">Логин</label>
-    <input id="newClient3" type="text" required th:field="*{login}">
-    <label for="newClient4">Пароль</label>
-    <input id="newClient4" type="password" required th:field="*{password}">
-    <label for="newClient5">Адрес</label>
-    <input id="newClient5" type="text" required th:field="*{address}">
-    <label for="newClient6">Платежный счет</label>
-    <input id="newClient6" type="text" required th:field="*{paymentAccount}">
-    <label for="newClient7">Имя отправителя сообщений</label>
-    <input id="newClient7" type="text" required th:field="*{messageSenderName}">
-    <select  th:field="*{tariffId}">
-        <option th:each="tariff : ${tariffs}"
-                th:value="${tariff.id}"
-                th:text="${tariff.name}">
-        </option>
-    </select>
-    <select  th:field="*{userId}">
-        <option th:each="user : ${users}"
-                th:value="${user.id}"
-                th:text="${user.name}">
-        </option>
-    </select>
-
-    <button type="submit">Добавить</button>
-</form>
+	<header class = "main-header">
+		<nav class = "main-navigation">
+			<ul class = "first">
+				<li><a href = "#">Права</a>
+					<ul class = "child">
+			            <li><a href="ar_access_rights.html">Список</a></li>
+			            <li><a href="ar_new_access_right.html">Добавить</a></li>
+			        </ul>
+				</li>
+				<li><a href = "#">Клиенты</a>
+					<ul class = "child">
+							<li><a href="c_clients.html">Список</a></li>
+							<li><a href="c_new_client.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Пользователи</a>
+					<ul class = "child">
+							<li><a href="u_users.html">Список</a></li>
+							<li><a href="u_new_user.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Контактные лица</a>
+					<ul class = "child">
+							<li><a href="cp_contact_persons.html">Список</a></li>
+							<li><a href="cp_new_contact_person.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Группы клиентов</a>
+					<ul class = "child">
+							<li><a href="csg_clients_subscribers_groups.html">Список</a></li>
+							<li><a href="csg_new_clients_subscribers_group.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Роли</a>
+					<ul class = "child">
+							<li><a href="r_roles.html">Список</a></li>
+							<li><a href="r_new_role.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">SMS</a>
+					<ul class = "child">
+							<li><a href="s_sms.html">Список</a></li>
+							<li><a href="s_new_sms.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Шаблоны SMS</a>
+					<ul class = "child">
+							<li><a href="st_sms_templates.html">Список</a></li>
+							<li><a href="st_new_sms_template.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Абоненты</a>
+					<ul class = "child">
+							<li><a href="s_subscribers.html">Список</a></li>
+							<li><a href="s_new_subscriber.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Тарифы</a>
+					<ul class = "child">
+							<li><a href="t_tariffs.html">Список</a></li>
+							<li><a href="t_new_tariff.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "ah_authorization_history.html">История авторизаций</a></li>
+				<li><a href = "ch_change_history.html">История изменений</a></li>
+				<li><a href = "crh_credit_history.html">История пополнений</a></li>
+				<li><a href = "dh_debit_history.html">История списаний</a></li>
+			</ul>
+		</nav>
+	</header>
+	<form class = "main-form" method="post" th:action="@{/clients/new}" th:object="${new_client}">
+		<fieldset>
+		<h2 class = "header-form">Входные данные</h2>
+			<ul class = "main-list">
+				<li class = "main-list-item">
+					<label for="newClient1">Номер контракта</label>
+					<input id="newClient1" type="text" required th:field="*{contractNumber}">
+				</li>
+				<li class = "main-list-item">
+					<label for="newClient2">Имя клиента</label>
+					<input id="newClient2" type="text" required th:field="*{name}">
+				</li>
+				<li class = "main-list-item">	
+					<label for="newClient3">Логин</label>
+					<input id="newClient3" type="text" required th:field="*{login}">
+				</li>
+				<li class = "main-list-item">	
+					<label for="newClient4">Пароль</label>
+					<input id="newClient4" type="password" required th:field="*{password}">
+				</li>
+				<li class = "main-list-item">	
+					<label for="newClient5">Адрес</label>
+					<input id="newClient5" type="text" required th:field="*{address}">
+				</li>
+				<li class = "main-list-item">	
+					<label for="newClient6">Платежный счет</label>
+					<input id="newClient6" type="text" required th:field="*{paymentAccount}">
+				</li>
+				<li class = "main-list-item">	
+					<label for="newClient7">Имя отправителя сообщений</label>
+					<input id="newClient7" type="text" required th:field="*{messageSenderName}">
+				</li>
+				<li class = "main-list-item">
+					<label>Тариф</label>
+					<select class = "select-list" th:field="*{tariffId}">
+						<option th:each="tariff : ${tariffs}"
+								th:value="${tariff.id}"
+								th:text="${tariff.name}">
+						</option>
+					</select>
+				</li>
+				<li class = "main-list-item">
+					<label>Пользователь</label>
+					<select class = "select-list" th:field="*{userId}">
+						<option th:each="user : ${users}"
+								th:value="${user.id}"
+								th:text="${user.name}">
+						</option>
+					</select>
+				</li>
+				<li class = "main-list-item">
+					<button class = "button-submit" type="submit">Добавить</button>
+				</li>
+			</ul>
+		</fieldset>
+	</form>
 </body>
 </html>
