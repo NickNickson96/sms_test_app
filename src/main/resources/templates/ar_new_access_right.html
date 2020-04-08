@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="new-field.css" type="text/css">
+	<link rel="stylesheet" type="text/css" th:href="@{css/new-field.css}" />
 
     <title th:text="${access_right.id == null ? 'Добавление тарифа' : 'Редактирование тарифа'}"></title>
 </head>

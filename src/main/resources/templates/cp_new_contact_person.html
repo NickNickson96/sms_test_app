@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="new-field.css" type="text/css">
+	<link rel="stylesheet" type="text/css" th:href="@{css/new-field.css}" />
 
     <title th:text="${contact_person.id == null ? 'Добавление контактного лица' : 'Редактирование онтактного лица'}"></title>
 </head>

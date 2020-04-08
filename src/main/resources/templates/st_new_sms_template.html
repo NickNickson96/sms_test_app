@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="new-field.css" type="text/css">
+	<link rel="stylesheet" type="text/css" th:href="@{css/new-field.css}" />
 
     <title th:text="${sms_template.id == null ? 'Добавление SMS-шаблона' : 'Редактирование SMS-шаблона'}"></title>
 
@@ -97,6 +97,7 @@
 			<li class = "main-list-item">
 				<button class = "button-submit" type="submit">Сохранить</button>
 			</li>
+		</ul>
 	  </fieldset>
 	</form>
 </body>

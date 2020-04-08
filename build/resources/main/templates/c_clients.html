@@ -1,45 +1,164 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
-
     <meta charset="UTF-8">
-    <link rel='stylesheet' href='/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css'>
+	<link rel="stylesheet" type="text/css" th:href="@{css/fields.css}" />
 
     <title>Клиенты</title>
-
-
 </head>
 <body>
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <th>Номер контракта</th>
-        <th>Имя клиента</th>
-        <th>Логин</th>
-        <th>Пароль</th>
-        <th>Адрес</th>
-        <th>Баланс</th>
-        <th>Платежный счет</th>
-        <th>Имя отправителя сообщений</th>
-        <th>Дата регистрации</th>
-        <th>Тариф</th>
-        <th>Зарегистрировавший пользователь</th>
-    </tr>
-    <tr th:each="client : ${clients}">
-        <td th:text="${client.id}"></td>
-        <td th:text="${client.contractNumber}"></td>
-        <td th:text="${client.name}"></td>
-        <td th:text="${client.login}"></td>
-        <td th:text="${client.password}"></td>
-        <td th:text="${client.address}"></td>
-        <td th:text="${client.balance}"></td>
-        <td th:text="${client.paymentAccount}"></td>
-        <td th:text="${client.messageSenderName}"></td>
-        <td th:text="${client.registrationDate}"></td>
-        <td th:text="${client.tariff == null ? 'Не существует' :client.tariff.name}"></td>
-        <td th:text="${client.user == null ? 'Не существует' : client.user.name}"></td>
-    </tr>
-</table>
-
+	<header class = "main-header">
+		<nav class = "main-navigation">
+			<ul class = "first">
+				<li><a href = "#">Права</a>
+					<ul class = "child">
+			            <li><a href="ar_access_rights.html">Список</a></li>
+			            <li><a href="ar_new_access_right.html">Добавить</a></li>
+			        </ul>
+				</li>
+				<li><a href = "#">Клиенты</a>
+					<ul class = "child">
+							<li><a href="c_clients.html">Список</a></li>
+							<li><a href="c_new_client.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Пользователи</a>
+					<ul class = "child">
+							<li><a href="u_users.html">Список</a></li>
+							<li><a href="u_new_user.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Контактные лица</a>
+					<ul class = "child">
+							<li><a href="cp_contact_persons.html">Список</a></li>
+							<li><a href="cp_new_contact_person.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Группы клиентов</a>
+					<ul class = "child">
+							<li><a href="csg_clients_subscribers_groups.html">Список</a></li>
+							<li><a href="csg_new_clients_subscribers_group.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Роли</a>
+					<ul class = "child">
+							<li><a href="r_roles.html">Список</a></li>
+							<li><a href="r_new_role.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">SMS</a>
+					<ul class = "child">
+							<li><a href="s_sms.html">Список</a></li>
+							<li><a href="s_new_sms.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Шаблоны SMS</a>
+					<ul class = "child">
+							<li><a href="st_sms_templates.html">Список</a></li>
+							<li><a href="st_new_sms_template.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Абоненты</a>
+					<ul class = "child">
+							<li><a href="s_subscribers.html">Список</a></li>
+							<li><a href="s_new_subscriber.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Тарифы</a>
+					<ul class = "child">
+							<li><a href="t_tariffs.html">Список</a></li>
+							<li><a href="t_new_tariff.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "ah_authorization_history.html">История авторизаций</a></li>
+				<li><a href = "ch_change_history.html">История изменений</a></li>
+				<li><a href = "crh_credit_history.html">История пополнений</a></li>
+				<li><a href = "dh_debit_history.html">История списаний</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section class = "main-h">
+			<h4>Welcome to SMSdistributionWebService</h4>
+			<h1>Клиенты</h1>
+			<h5>Редактирование и просмотр таблицы клиентов!</h5>
+		</section>	
+		
+		<div class = "div-for-table">
+			<section class = "for-main-table">
+				<button class = "button-add" id = "button-add">Добавить запись</button>
+				<table class = "main-table">
+					<tr>
+						<th>ID</th>
+						<th>Номер контракта</th>
+						<th>Имя клиента</th>
+						<th>Логин</th>
+						<th>Пароль</th>
+						<th>Адрес</th>
+						<th>Баланс</th>
+						<th>Платежный счет</th>
+						<th>Имя отправителя сообщений</th>
+						<th>Дата регистрации</th>
+						<th>Тариф</th>
+						<th>Зарегистрировавший пользователь</th>
+					</tr>
+					<tr th:each="client : ${clients}">
+						<td th:text="${client.id}"></td>
+						<td th:text="${client.contractNumber}"></td>
+						<td th:text="${client.name}"></td>
+						<td th:text="${client.login}"></td>
+						<td th:text="${client.password}"></td>
+						<td th:text="${client.address}"></td>
+						<td th:text="${client.balance}"></td>
+						<td th:text="${client.paymentAccount}"></td>
+						<td th:text="${client.messageSenderName}"></td>
+						<td th:text="${client.registrationDate}"></td>
+						<td th:text="${client.tariff == null ? 'Не существует' :client.tariff.name}"></td>
+						<td th:text="${client.user == null ? 'Не существует' : client.user.name}"></td>
+					</tr>
+				</table>
+				<ul class = "pagination-list">
+					<li class = "pagination-item previous"><a href = "">prev</a></li>
+					<li class = "pagination-item current"><a>1</a></li>
+					<li class = "pagination-item"><a href = "">2</a></li>
+					<li class = "pagination-item"><a href = "">3</a></li>
+					<li class = "pagination-item next"><a href = "">next</a></li>
+				</ul>
+			</section>
+		</div>
+		<form class = "filter" method="" action="https://echo.htmlacademy.ru"> 
+			<section class = "filter-text">
+				<h2>Фильтровать по:</h2>
+				<ul>
+					<li class = "filter-options">
+						<label for="filter-1">Имя клиента</label>
+						<input class = "visually-hidden filter-input filter-input-text" id = "filter-1" type = "text">
+					</li>
+					<li class = "filter-options">
+						<label for="filter-2">Адрес</label>
+						<input class = "visually-hidden filter-input filter-input-text" id = "filter-2" type = "text">
+					</li>
+					<li class = "filter-options">
+						<label for="filter-3">Платежный счет</label>
+						<input class = "visually-hidden filter-input filter-input-text" id = "filter-3" type = "text">
+					</li>
+				</ul>
+			</section>
+			
+			<section class = "filter-date">
+				<h2>Дата регистрации</h2>
+				<ul>
+					<li class = "filter-options">
+						<label for="date-1">С</label>
+						<input id = "date-1" type = "date">
+					</li>
+					<li class = "filter-options">
+						<label for="date-2">По</label>
+						<input id = "date-2" type = "date">
+					</li>
+				</ul>
+			</section>
+		</form>
+	</main>	
 </body>
 </html>
