@@ -21,24 +21,33 @@ dependencyManagement {
     }
 }
 
-/*configurations {
-    compile.exclude module: 'spring-boot-starter-logging'
-}*/
+configurations {
+    //compile.exclude module: 'spring-boot-starter-logging'  // Отключение логов при запуске приложения
+
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-data-jpa"
-    compile "org.springframework.boot:spring-boot-starter-web"
-    //compile "org.springframework.boot:spring-boot-devtools"
-    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    /*compile*/ implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    /*compile*/ implementation "org.springframework.boot:spring-boot-starter-web"
+    /*compile*/ implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    /*compile*/ implementation "org.springframework.boot:spring-boot-devtools"
 
-    compile 'org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.0.RELEASE'
-    compile 'io.github.jpenren:thymeleaf-spring-data-dialect:3.4.1'
+    /*compile*/ implementation 'org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.0.RELEASE'
+    /*compile*/ implementation 'io.github.jpenren:thymeleaf-spring-data-dialect:3.4.1'
 
     annotationProcessor "org.projectlombok:lombok"
-    compile "org.projectlombok:lombok"
+    /*compile*/ implementation "org.projectlombok:lombok"
 
-    compile "org.postgresql:postgresql:42.2.5"
+    /*compile*/ implementation "org.postgresql:postgresql:42.2.5"
 
-    compile 'org.webjars:bootstrap:4.4.1-1'
+    /*compile*/ implementation 'org.webjars:bootstrap:4.4.1-1'
+
+    /*compile*/ implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+
 
 }

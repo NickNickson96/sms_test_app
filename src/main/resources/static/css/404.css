@@ -1,0 +1,11 @@
+body
+{
+    background-color: #efeff1;
+}
+
+.image_center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

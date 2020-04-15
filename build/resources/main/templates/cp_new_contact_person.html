@@ -4,80 +4,13 @@
 <head>
 
     <meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" th:href="@{css/new-field.css}" />
-
+	<link rel="stylesheet" type="text/css" th:href="@{css/new_field.css}" />
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow&display=swap" rel="stylesheet">
     <title th:text="${contact_person.id == null ? 'Добавление контактного лица' : 'Редактирование онтактного лица'}"></title>
 </head>
 <body>
 	<header class = "main-header">
-		<nav class = "main-navigation">
-			<ul class = "first">
-				<li><a href = "#">Права</a>
-					<ul class = "child">
-			            <li><a href="ar_access_rights.html">Список</a></li>
-			            <li><a href="ar_new_access_right.html">Добавить</a></li>
-			        </ul>
-				</li>
-				<li><a href = "#">Клиенты</a>
-					<ul class = "child">
-							<li><a href="c_clients.html">Список</a></li>
-							<li><a href="c_new_client.html">Добавить</a></li>
-					</ul>
-				</li>
-				<li><a href = "#">Пользователи</a>
-					<ul class = "child">
-							<li><a href="u_users.html">Список</a></li>
-							<li><a href="u_new_user.html">Добавить</a></li>
-					</ul>
-				</li>
-				<li><a href = "#">Контактные лица</a>
-					<ul class = "child">
-							<li><a href="cp_contact_persons.html">Список</a></li>
-							<li><a href="cp_new_contact_person.html">Добавить</a></li>
-					</ul>
-				</li>
-				<li><a href = "#">Группы клиентов</a>
-					<ul class = "child">
-							<li><a href="csg_clients_subscribers_groups.html">Список</a></li>
-							<li><a href="csg_new_clients_subscribers_group.html">Добавить</a></li>
-					</ul>
-				</li>
-				<li><a href = "#">Роли</a>
-					<ul class = "child">
-							<li><a href="r_roles.html">Список</a></li>
-							<li><a href="r_new_role.html">Добавить</a></li>
-					</ul>
-				</li>
-				<li><a href = "#">SMS</a>
-					<ul class = "child">
-							<li><a href="s_sms.html">Список</a></li>
-							<li><a href="s_new_sms.html">Добавить</a></li>
-					</ul>
-				</li>
-				<li><a href = "#">Шаблоны SMS</a>
-					<ul class = "child">
-							<li><a href="st_sms_templates.html">Список</a></li>
-							<li><a href="st_new_sms_template.html">Добавить</a></li>
-					</ul>
-				</li>
-				<li><a href = "#">Абоненты</a>
-					<ul class = "child">
-							<li><a href="s_subscribers.html">Список</a></li>
-							<li><a href="s_new_subscriber.html">Добавить</a></li>
-					</ul>
-				</li>
-				<li><a href = "#">Тарифы</a>
-					<ul class = "child">
-							<li><a href="t_tariffs.html">Список</a></li>
-							<li><a href="t_new_tariff.html">Добавить</a></li>
-					</ul>
-				</li>
-				<li><a href = "ah_authorization_history.html">История авторизаций</a></li>
-				<li><a href = "ch_change_history.html">История изменений</a></li>
-				<li><a href = "crh_credit_history.html">История пополнений</a></li>
-				<li><a href = "dh_debit_history.html">История списаний</a></li>
-			</ul>
-		</nav>
+		<nav th:insert="~{ header_menu :: navigation } "></nav>
 	</header>
 	<form class = "main-form" method="post" th:action="@{/contact_persons/save}" th:object="${contact_person}">
 		<fieldset>

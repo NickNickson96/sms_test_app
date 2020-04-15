@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+	<!--
+	<link rel='stylesheet' href='../static/css/fields.css'>
+		<link rel='stylesheet' href='../static/css/new_field.css'>
+	-->
+	<!-- 	-->
+    <link rel="stylesheet" type="text/css" th:href="@{css/fields.css}" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/new_field.css}" />
+
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow&display=swap" rel="stylesheet">
+
+	<title>Меню</title>
+</head>
+<body>
+	<header class = "main-header">
+		<nav th:fragment="navigation" class = "main-navigation">
+			<ul class = "first">
+				<li><a href = "#">Права</a>
+					<ul class = "child">
+			            <li><a href="ar_access_rights.html" th:href="@{access_rights}" >Список</a></li>
+			            <li><a href="ar_new_access_right.html" th:href="@{access_rights/new_access_right}" >Добавить</a></li>
+			        </ul>
+				</li>
+				<li><a href = "#">Клиенты</a>
+					<ul class = "child">
+							<li><a href="c_clients.html" th:href="@{clients}">Список</a></li>
+							<li><a href="c_new_client.html" th:href="@{clients/new_client}">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Пользователи</a>
+					<ul class = "child">
+							<li><a href="u_users.html" th:href="@{users}" >Список</a></li>
+							<li><a href="u_new_user.html" th:href="@{users/new_user}" >Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Контактные лица</a>
+					<ul class = "child">
+							<li><a href="cp_contact_persons.html" th:href="@{contact_persons}" >Список</a></li>
+							<li><a href="cp_new_contact_person.html" th:href="@{contact_persons/new_contact_person}" >Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Группы клиентов</a>
+					<ul class = "child">
+							<li><a href="csg_clients_subscribers_groups.html" th:href="@{clients_subscribers_groups}" >Список</a></li>
+							<li><a href="csg_new_clients_subscribers_group.html" th:href="@{clients_subscribers_groups/new_clients_subscribers_group}" >Добавить</a></li>
+					</ul>
+				</li>
+
+
+
+				<li><a href = "#">Роли</a>
+					<ul class = "child">
+							<li><a href="roles">Список</a></li>
+							<li><a href="roles/new_role.html">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">SMS</a>
+					<ul class = "child">
+							<li><a href="sms_messages">Список</a></li>
+							<li><a href="sms_messages/new_sms">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Шаблоны SMS</a>
+					<ul class = "child">
+							<li><a href="sms_templates">Список</a></li>
+							<li><a href="sms_templates/new_sms_template">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Абоненты</a>
+					<ul class = "child">
+							<li><a href="subscribers">Список</a></li>
+							<li><a href="subscribers/new_subscriber">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Тарифы</a>
+					<ul class = "child">
+							<li><a href="tariffs">Список</a></li>
+							<li><a href="tariffs/new_tariff">Добавить</a></li>
+					</ul>
+				</li>
+				<li><a href = "#">Истории</a>
+					<ul class = "child">
+						<li><a href = "authorization_history">История авторизаций</a></li>
+						<li><a href = "change_history">История изменений</a></li>
+						<li><a href = "credit_history">История пополнений</a></li>
+						<li><a href = "debit_history">История списаний</a></li>
+					</ul>
+				</li>
+
+				<!-- -->
+
+			</ul>
+		</nav>
+	</header>
+</body>
+</html>
