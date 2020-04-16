@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="authorization.css" type="text/css"> -->
+	<link rel="stylesheet" type="text/css" th:href="@{css/authorization.css}" />
+
+	<link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Sans+Narrow&display=swap" rel="stylesheet">
+
+	<title>Новый пользователь</title>
+</head>
+<body>
+	<header class = "main-header">
+		<nav th:insert="~{ header_menu :: navigation } "></nav>
+	</header>
+	<form class = "main-form" method="post" th:action="@{/users/new}" th:object="${new_user}">
+		<fieldset>
+		<h2 class = "header-form">Авторизация</h2>
+		<ul class = "main-list">
+			<li class = "main-list-item">
+				<label class = "visually-hidden"for="login">Логин</label>
+				<input class = "text-input" id="login" class="form-control" type="text" required th:field="*{login}" placeholder="Введите логин">
+			</li>
+			<li class = "main-list-item">	
+				<label class = "visually-hidden" for="password">Пароль</label>
+				<input class = "text-input" id="password" class="form-control" type="password" required th:field="*{password}" placeholder="Введите пароль">
+			</li>
+			<li class = "main-list-item">	
+				<input id="checkbox" class="checkbox-input" type="checkbox" required>
+				<label  for="checkbox">Показать пароль</label>
+				
+			</li>				
+			<li class = "main-list-item">	
+				<button class = "button-submit" type="submit">Войти</button>
+			</li>
+	</form>
+</body>
+</html>
